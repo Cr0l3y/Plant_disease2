@@ -83,7 +83,7 @@ The dataset was divided into one part for training and another for validation us
 
 ---
 ---
-
+#### Tive que criar outro repossitorio pois arquivos corromperam
 
 <p style="font-family:Arial; font-size:30px; color:#4361F7;">
     <em>PT-BR</em>:
