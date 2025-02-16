@@ -10,12 +10,9 @@ Text translated on translate.google EN. - Text in PT-BR
 
 # Project: Image classification with grapevine leaves: Plant disease.
 
-<p style="font-family:Arial; font-size:20px; color:#43CDF7;">
-    Provisional IMG of the project:
-</p>
 
-![alt text](Uva.jpg)
-###### Font IMG : https://saporedivino.com.br/o-ciclo-de-vida-das-videiras/ 
+![alt text](uva.PNG)
+
 
 
 - ***Using convolutional neural networks***
@@ -110,15 +107,9 @@ Finally, I saved the results both as raw data and in an optimized format, using 
 
 # Projeto: Classificação de imagem com folhas de videiras : Doença de plantas.
 
-<p style="font-family:Arial; font-size:20px; color:#43CDF7;">
-    IMG provisoria do projeto:
-</p>
 
 
-
-![alt text](Uva.jpg)
-###### Font IMG : https://saporedivino.com.br/o-ciclo-de-vida-das-videiras/ 
-
+![alt text](uva.PNG)
 
 - ***Utilizando redes neurais convolucionais***
 
