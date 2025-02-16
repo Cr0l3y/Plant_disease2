@@ -1,4 +1,5 @@
 Text translated on translate.google EN. - Text in PT-BR 
+#### The files were corrupted and this repository was created without further notice.
 
 <p style="font-family:Arial; font-size:30px; color:#4361F7;">
     <em>EN</em>:
@@ -72,8 +73,25 @@ The dataset was divided into one part for training and another for validation us
 
 
 
+After plotting the results, the accuracy was around 0.8. Trying to see if I could improve it even further, I looked for specific layers for neural networks that work with images, testing another technique to optimize accuracy.
+
+I added convolutional layers, now with 32 filters, meaning 32 versions of the same data, using Conv2D with a 3x3 pixel size and reducing dimensionality with MaxPooling2D.
+
+Running the model with 10 epochs, the graph showed values close to 1 up to a certain point. Using summary, I analyzed the model’s layer data and set an epoch limit using a class called "myCallback", which stops training when accuracy reaches 0.93. This was just a test to see how far the model could go.
+
+Now, testing with 50 epochs, the data became unstable over time. To try to improve it, I added Data Augmentation to increase the dataset. After running 50 epochs with this technique and plotting the graph, the results indicated some instability in the neural network training. Additionally, it might suggest that the added features, such as rotation and zoom, were not present in the validation data.
+
+Because of this, I decided to use the InceptionV3 model, which I had previously worked with on another Kaggle project. Project summary: pneumonia X-rays, with 16 validation images and 5216 training images. I plotted the data, split it into 80-20, and used initial_bias for correction. The model included Dense and Dropout layers.
+
+I defined the input shape in a variable:
 
 
+        input_shape = (256, 256, 3)
+
+
+I downloaded the InceptionV3 model and set trainable = False so it wouldn't be trainable. I took the base model's output for compilation. This time, I ran 20 epochs, and accuracy improved.
+
+Finally, I saved the results both as raw data and in an optimized format, using "include_optimizer", converting and saving the model with TensorFlow Lite.
 
 
 
@@ -83,7 +101,7 @@ The dataset was divided into one part for training and another for validation us
 
 ---
 ---
-#### Tive que criar outro repossitorio pois arquivos corromperam
+#### Os arquivos foram corrompidos e esse repositorio foi feito sem seguida.
 
 <p style="font-family:Arial; font-size:30px; color:#4361F7;">
     <em>PT-BR</em>:
@@ -170,18 +188,21 @@ Foi realizado a divisão dataset uma parte para treino e outro para validação 
 
 
 
-apos plotar os resultadodos a acurácia ficou em torno de 0.8, tentando ver se tem como melhorar ainda mais, fui em busca dde camadas específicas para redes neurais que envolvem imagens assim usando outra técnica para melhorar a acurácia.
+Após plotar os resultados, a acurácia ficou em torno de 0.8. Tentando ver se dava para melhorar ainda mais, fui em busca de camadas específicas para redes neurais que trabalham com imagens, testando outra técnica para otimizar a acurácia.
 
+Adicionei camadas convolucionais, agora com 32 filtros, ou seja, 32 versões do mesmo dado, usando Conv2D com tamanho 3x3 pixels e reduzindo a dimensionalidade com MaxPooling2D.
 
-Adicionando camadas convolucionais, colocando agora, 32 filtros entao é 32 versoes, tamanho de 3x3 pixels com Conv2D, e reduzindo dimensionalidade com o MaxPooling2D.
-com o modelo utilizando 10 epocas o grafico ficou em torno de 1 ate certo ponto, com summary foi visto os dados das camadas do modelo, fazendo um limite para as epocas com a class criada chamada "myCallback", quando atingir 0.93 ele vai parar de fazer as epocas. isso so um teste para ver ate onde iria.
+Rodando o modelo com 10 épocas, o gráfico mostrou valores próximos de 1 até certo ponto. Usando o summary, analisei os dados das camadas do modelo e configurei um limite para as épocas com uma classe chamada "myCallback", que interrompe o treinamento ao atingir 0.93 de acurácia. Isso foi apenas um teste para ver até onde o modelo chegaria.
 
-Agora testando com mais epocas "50", os dados ficou com dados instaveis ao longo do tempo para melhorar foi adicionado o "Data Augmentation", para aumentar a base de dados, logo após fazendo as 50 epocas com o "Data Augmentation", e plotando o grafico. O resultado do grafico indicar certa instabilidade no treinamento da rede neural, além de poder indicar que não temos essas características que tentamos adicionar aos dados de validação, como a rotação e o zoom.
+Agora, testando com 50 épocas, os dados ficaram instáveis ao longo do tempo. Para tentar melhorar, adicionei Data Augmentation para aumentar a base de dados. Depois de rodar as 50 épocas com essa técnica e plotar o gráfico, o resultado indicou certa instabilidade no treinamento da rede neural. Além disso, pode indicar que as características adicionadas, como rotação e zoom, não estavam presentes nos dados de validação.
 
-Sendo assim vou utilizando o modelo interceptionV3 ja trabalhado com ele em outro projeto no kaggle. Resumo do projeto: raixoX de penemunia, com 16 validação de image, treino 5216 treino, foi feito plotagem dos dados, sendo dados 80-20, o uso de correção usando o initial_bias, dados do modelo foram, Dense e Dropout.
+Diante disso, resolvi utilizar o modelo InceptionV3, que já trabalhei em outro projeto no Kaggle. Resumo do projeto: raios X de pneumonia, com 16 imagens de validação e 5216 imagens de treino. Fiz a plotagem dos dados, dividi em 80-20, e utilizei initial_bias para correção. No modelo, trabalhei com camadas Dense e Dropout.
 
-Foi adicionado a forma do nosso input em uma variável
+Defini a forma do input em uma variável:
 
         input_shape = (256, 256, 3)
 
-Foi baixado o "InceptionV3" além de passar trainable = False para que ele não seja treinavel, pegando a saída do modelo base para a compilação. Desta vez usando esse modelo so que com 20 epocas, a acuracia melhorou então foi feito o salvamento com dados brutos, e no modo otimizado com "include_optimizer", e convertendo e salvando com TensorFlow Lite
+Baixei o modelo InceptionV3 e configurei trainable = False para que ele não fosse treinável. Peguei a saída do modelo base para a compilação. Desta vez, rodei 20 épocas e a acurácia melhorou.
+
+Por fim, salvei os resultados tanto em dados brutos quanto no modo otimizado, usando "include_optimizer", convertendo e salvando o modelo com TensorFlow Lite.
+
